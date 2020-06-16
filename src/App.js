@@ -6,37 +6,79 @@ import "./styles.css";
 
 function App() {
   const [repositories, setRepositories] = useState([]);
+  const [url, setUrl] = useState('');
+  const [title, setTitle] = useState('');
+  const [techs, setTechs] = useState('');
 
   useEffect(() => {
     api.get('repositories')
       .then(response => {
-        console.log(response.data);
         setRepositories(response.data);
       })
       .catch(err => {
-        console.log(err);
-      })
+        console.log(err.response.data);
+      });
   }, [])
 
-  async function handleAddRepository() {
-    // TODO
+  async function handleAddRepository(e) {
+    e.preventDefault();
+
+    const techsFormatted = techs.split(',').map(tech => tech.trim());
+
+    api.post('repositories', {
+      url,
+      title,
+      techs: techsFormatted,
+    }).then(response => {
+      setRepositories([...repositories, response.data]);
+    }).catch(err => {
+      console.log(err.response.data);
+    });
   }
 
   async function handleRemoveRepository(id) {
-    // TODO
+    
+
+    api.delete(`repositories/${id}`)
+      .then(() => {
+        setRepositories(currentRepositories => {
+          return currentRepositories.filter(repository => repository.id !== id);
+        });
+      })
+      .catch(err => {
+        console.log(err.response.data);
+      });
   }
 
   return (
     <div className="container">
       <h1>Criar repósitorio</h1>
 
-      <form>
-        <input type="text" placeholder="URL do repósitorio"/>
+      <form onSubmit={handleAddRepository}>
+        <input 
+          type="text" 
+          placeholder="URL do repósitorio"
+          value={url}
+          onChange={e => setUrl(e.target.value)}
+          required
+        />
 
-        <input type="text" placeholder="Titúlo do repósitorio"/>
+        <input 
+          type="text" 
+          placeholder="Titúlo do repósitorio"
+          value={title}
+          onChange={e => setTitle(e.target.value)}
+          required
+        />
 
         <span>Separar tecnlogias por virgúlas</span>
-        <input type="text" placeholder="Teconlogias utilizadas"/>
+        <input 
+          type="text" 
+          placeholder="Teconlogias utilizadas"
+          value={techs}
+          onChange={e => setTechs(e.target.value)}
+          required
+        />
 
         <button type="submit" onClick={handleAddRepository}>Adicionar</button>
       </form>
@@ -51,7 +93,7 @@ function App() {
             <div>
               <a href={repository.url}>Link para repósitorio</a>
 
-              <button onClick={() => handleRemoveRepository(1)}>
+              <button onClick={() => handleRemoveRepository(repository.id)}>
               Remover
               </button>
             </div>
