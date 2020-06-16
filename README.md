@@ -1,13 +1,12 @@
 <div align="center">
-  <img src="./public/gostack.png">
+  <img src="./public/gostack.png" width="320">
 
   ## Desafio 04: Conceitos do ReactJS
 </div>
 
-#
 
 <div align="center">
-  <img src="./public/demo.gif">
+  <img src="./public/demo.gif" width="400">
 </div>
 
 ## 🔖 Sobre
