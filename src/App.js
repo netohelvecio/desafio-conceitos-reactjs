@@ -37,8 +37,6 @@ function App() {
   }
 
   async function handleRemoveRepository(id) {
-    
-
     api.delete(`repositories/${id}`)
       .then(() => {
         setRepositories(currentRepositories => {
