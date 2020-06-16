@@ -1,39 +1,152 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap');
+
 * {
   margin: 0;
   padding: 0;
+  outline: 0;
   box-sizing: border-box;
 }
 
-body {
-  font-size: 14px;
-}
-
-div {
+body, #root {
+  background-color: #26547c;
+  -webkit-font-smoothing: antialiased;
+  font: 14px 'Roboto', sans-serif;
   width: 100%;
-  margin: 20px;
+  height: 100%;
 }
 
-div li {
-  display: flex;
-  align-items: center;
+a {
+  text-decoration: none;
 }
 
-div li + li {
-  margin-top: 15px;
+ul {
+  list-style: none;
 }
 
 button {
-  background: #7159c1;
-  color: #fff;
-  border: 0;
-  padding: 10px 15px;
   cursor: pointer;
-  margin-top: 15px;
-  font-weight: bold;
-  font-size: 14px;
 }
 
-div li button {
-  margin: 0 15px;
-  background: #ca4949;
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  padding: 2em;
+}
+
+.container h1 {
+  color: #fcfcfc;
+  font-size: 38px;
+}
+
+.container form{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  width: 50%;
+  padding: 1.5em 2em;
+}
+
+.container form input {
+  width: 100%;
+  border: 0;
+  background-color: #fff;
+  padding: 0.8em 1.8em;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 1em;
+}
+
+.container form button {
+  width: 100%;
+  border: 2px solid #06D6A0;
+  background-color: #fff;
+  color: #06D6A0;
+  padding: 1em 1.8em;
+  margin-bottom: 1em;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: bold;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.container form button:hover {
+  background-color: #06D6A0;
+  color: #fff;
+}
+
+.container form input::placeholder {
+  color: #666;
+}
+
+.container form span {
+  font-size: 12px;
+  color: #FF6F5C;
+  font-weight: bold;
+}
+
+.container ul {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 2em;
+  width: 50%;
+}
+
+.container ul li {
+  padding: 16px 24px; 
+  background-color: #06D6A0;
+  border-radius: 8px;
+  box-shadow: 2px 3px 6px -2px #000;
+}
+
+.container ul li span {
+  font-size: 22px;
+  color: #fcfcfc;
+  font-weight: bold;
+}
+
+.container ul li p {
+  font-size: 16px;
+  line-height: 26px;
+  color: #fcfcfc;
+  margin-top: 0.5em;
+}
+
+.container ul li div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0.5em;
+}
+
+.container ul li div a {
+  font-size: 12px;
+  color: #171738;
+}
+
+.container ul li div a:hover {
+  color: rgba(23, 23, 56, 0.8);
+}
+
+.container ul li div button {
+  border: 0;
+  background-color: #FF6F5C;
+  color: #fcfcfc;
+  padding: 0.4em 1em;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: bold;
+  transition: background-color 0.2s;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container ul li div button:hover {
+  background-color: #ff5039;
 }
