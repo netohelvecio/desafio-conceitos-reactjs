@@ -11,11 +11,11 @@
 
 ## 🔖 Sobre
 
-Aplicação feita durante o desafio 04 do bootcamp da Rocketseat para fixar conceitos do React. App consiste em cadastrar o repositório com o link e as tecnologias utlizadas, além disso lista e deleta repositórios.
+Aplicação feita durante o desafio 03 do bootcamp da Rocketseat para fixar conceitos do React. App consiste em cadastrar o repositório com o link e as tecnologias utlizadas, além disso lista e deleta repositórios.
 
 ## 📁 Repositórios relacionados
 - [Backend](https://github.com/netohelvecio/desafio-conceitos-nodejs)
-- Mobile - Ainda em construção.
+- [Mobile](https://github.com/netohelvecio/desafio-conceitos-react-native)
 
 ## 💻: Tecnologias utilizadas
 
